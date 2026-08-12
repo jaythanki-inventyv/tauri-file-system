@@ -1,0 +1,16 @@
+# 16 KB page-size alignment for Android's linker — required so the shared
+# library doesn't trip the "Android App Compatibility" warning dialog
+# (ELF LOAD segment not aligned), which was popping up over native dialogs
+# (SAF Save-As) mid-flow, making the app look hung/reloaded during multi-file
+# saves. See https://developer.android.com/16kb-page-size
+[target.aarch64-linux-android]
+rustflags = ["-C", "link-args=-Wl,-z,max-page-size=16384"]
+
+[target.armv7-linux-androideabi]
+rustflags = ["-C", "link-args=-Wl,-z,max-page-size=16384"]
+
+[target.i686-linux-android]
+rustflags = ["-C", "link-args=-Wl,-z,max-page-size=16384"]
+
+[target.x86_64-linux-android]
+rustflags = ["-C", "link-args=-Wl,-z,max-page-size=16384"]

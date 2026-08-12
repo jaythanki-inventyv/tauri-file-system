@@ -1,0 +1,10 @@
+{
+  "$schema": "../gen/schemas/android-schema.json",
+  "identifier": "android-only",
+  "description": "Android-only permissions (Way 2 save path via tauri-plugin-android-fs)",
+  "platforms": ["android"],
+  "windows": ["main"],
+  "permissions": [
+    "android-fs:default"
+  ]
+}
